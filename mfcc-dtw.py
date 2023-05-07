@@ -3,6 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sklearn.preprocessing as preprocessing
 
+#get_mfccで、MFCCをモデルとSSが入力された時点に計算。
+#Sの音声が入力されたら、get_mfcc(S)でSのmfccも計算し、get_with_mfcc(model_mfcc, S_mfcc, SS_mfcc)で最終結果を出す。
+#12秒の音声に対して、全体の時間はおよそ10秒であるが、mfccの計算は4sである。
+
 def get_mfcc(a): #音声ファイルからMFCCを抽出
     y, sr = librosa.load(a, sr = 16000)
     mfccs = librosa.feature.mfcc(y=y, sr=16000, win_length = 400, n_mfcc=13, hop_length = 320)
