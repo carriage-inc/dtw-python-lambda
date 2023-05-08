@@ -1,6 +1,5 @@
 import librosa
 import numpy as np
-import matplotlib.pyplot as plt
 import sklearn.preprocessing as preprocessing
 
 #get_mfccで、MFCCをモデルとSSが入力された時点に計算。
