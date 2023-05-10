@@ -1,0 +1,4 @@
+.serverless
+.DS_Store
+.requirements.zip
+node_modules

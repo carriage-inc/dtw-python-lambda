@@ -1,16 +1,19 @@
-service: serverless-sample
-
-frameworkVersion: '2'
+service: serverless-docker-example
 
 provider:
   name: aws
-  runtime: python3.8
-  lambdaHashingVersion: 20201221
+  ecr:
+    images:
+      python:
+        path: ./
+        file: Dockerfile
 
 functions:
   hello:
-    handler: handler.hello
+    timeout: 60
+    image:
+      name: python
     events:
       - httpApi:
           path: /hello
-          method: get
+          method: post
