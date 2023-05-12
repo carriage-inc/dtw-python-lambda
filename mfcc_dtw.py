@@ -1,5 +1,4 @@
 import numpy as np
-import sklearn.preprocessing as preprocessing
 import librosa
 
 #get_mfccで、MFCCをモデルとSSが入力された時点に計算。
@@ -97,9 +96,9 @@ def dtw_with_index_all(x, y):
     for j in range(len(res)):
         res[j] = np.mean(res[j])
 
-    newresnew = preprocessing.minmax_scale(res)
+    #newresnew = preprocessing.minmax_scale(res)
 
-    return newresnew
+    return res
 
 def get_with_mfcc(model_mfcc, S_mfcc, SS_mfcc):
     #mfccを三つ出して、一気にxとyの配列を出す。
