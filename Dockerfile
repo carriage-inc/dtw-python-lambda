@@ -16,4 +16,4 @@ RUN chmod 755 /usr/local/bin/ffprobe
 
 ENV NUMBA_CACHE_DIR /tmp/cache1
 
-CMD [ "handler.hello" ]
+CMD [ "handler.calc_mfcc_dtw" ]

@@ -9,11 +9,20 @@ provider:
         file: Dockerfile
 
 functions:
-  hello:
+  calc_mfcc_dtw:
     timeout: 60
     image:
       name: python
     events:
       - httpApi:
-          path: /hello
+          path: /calc-mfcc-dtw
           method: post
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent

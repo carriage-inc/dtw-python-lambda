@@ -1,12 +1,8 @@
-try:
-  import unzip_requirements
-except ImportError:
-  pass
 import json
 import base64
 import mfcc_dtw
 
-def hello(event, context):
+def calc_mfcc_dtw(event, context):
     payload = json.loads(event['body'])
     model_binary = base64.b64decode(payload['model'])
     shadow_binary = base64.b64decode(payload['shadow'])
@@ -30,6 +26,10 @@ def hello(event, context):
 
     response = {
         "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Credentials": "true"
+        },
         "body": json.dumps(result)
     }
 
